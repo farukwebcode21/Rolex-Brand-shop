@@ -27,8 +27,8 @@ const MakeAdmin = () => {
         e.preventDefault()
     }
     return (
-        <div className="container mt-5">
-            <form className="w-50" onSubmit={handleAdminSubmit}>
+        <div className="container dashboard-home">
+            <form className="w-50 pt-5" onSubmit={handleAdminSubmit}>
                 <h5 className="fw-normal mb-3 pb-3" style={{letterSpacing:'1px'}}>Create Admin</h5>
                 <div className="form-outline mb-2">
                     <input type="email" onBlur={handleOnBlure} name="email" className="form-control form-control-lg" placeholder="Your Email" />

@@ -1,0 +1,25 @@
+.purchase-product form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+.purchase-product input {
+  width: 80%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+/* .add-service form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+.add-service input,
+textarea {
+  width: 40%;
+  margin-bottom: 10px;
+} */

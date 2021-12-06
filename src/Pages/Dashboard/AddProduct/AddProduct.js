@@ -17,15 +17,17 @@ const AddProduct = () => {
     };
 
     return (
-        <div className="add-service">
-            <h1>Add Product Here </h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register("title", { required: true, maxLength: 20 })} placeholder="Name" />
-                <textarea {...register("description")} placeholder="Description" />
-                <input type="number" {...register("price")} placeholder="price" />
-                <input  {...register("img")} placeholder="img url" />
-                <input type="submit" />
-            </form>
+        <div className="dashboard-home">
+            <div className="add-service mt-2">
+                <h1>Add  New Product Here </h1>
+                <form  onSubmit={handleSubmit(onSubmit)}>
+                    <input {...register("title", { required: true, maxLength: 20 })} placeholder="Name" style={{padding:'10px'}} />
+                    <textarea {...register("description")} placeholder="Description" style={{marginBottom:'10px'}} />
+                    <input type="number" {...register("price")} placeholder="price" style={{padding:'10px'}} />
+                    <input  {...register("img")} placeholder="img url" style={{padding:'10px'}} />
+                    <input type="submit" />
+                </form>
+            </div>
         </div>
     )
 }

@@ -25,7 +25,7 @@ const ManageProduct = () => {
         })
     }
     return (
-        <div className="my-5">
+        <div className="my-1 dashboard-home">
             <h3 className="products mb-4">Manage Product</h3>
             <Row xs={1} md={4} className="g-4">
                 {

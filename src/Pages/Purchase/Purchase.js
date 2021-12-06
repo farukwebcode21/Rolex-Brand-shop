@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import { useForm } from "react-hook-form";
+import './Purchase.css'
+import axios from 'axios';
 
 
 const Purchase = () => {
   const { puchaseId } = useParams();
+  const { user } = useAuth();
+  const history = useHistory();
   const [product, setProduct] = useState({});
 
   useEffect(() => {
@@ -13,8 +19,20 @@ const Purchase = () => {
       .then((data) => setProduct(data));
   }, [puchaseId]);
 
+  const { register, handleSubmit, reset } = useForm();
+    const onSubmit = data => {
+      axios.post('http://localhost:5000/orders', data)
+            .then(res => {
+                if (res.data.insertedId) {
+                  alert('Are you Sure want to order successfully ?');
+                  history.push('/')
+                    reset();
+                }
+            })
+    };
+
   return (
-    <div style={{ height: "100vh" }}>
+    <div>
       <Row>
         <Col sm={12} md={6}>
           <div className="container py-5">
@@ -30,7 +48,8 @@ const Purchase = () => {
                         className="img-fluid"
                         style={{ borderRadius: "1rem 0 0 1rem" }}/>
                         <h4>{product.title}</h4>
-                        <p>{product.price}</p>
+                        <h5>${product.price}</h5>
+                       <p>{product.description }</p>
                     </div>
                   </div>
                 </div>
@@ -38,54 +57,17 @@ const Purchase = () => {
             </div>
           </div>
         </Col>
-        <Col sm={12} md={6}>
-          <form onSubmit="">
-            <h5
-              className="fw-normal my-3 pb-3"
-              style={{ letterSpacing: "1px" }}
-            >Please input Your Information</h5>
-            <div className="form-outline mb-4">
-              <input
-                type="text"
-                onBlur=""
-                name="name"
-                className="form-control form-control-lg"
-                placeholder="Your name"
-              />
-            </div>
-            <div className="form-outline mb-4">
-              <input
-                type="email"
-                onBlur=""
-                name="email"
-                className="form-control form-control-lg"
-                placeholder="Your Email"
-              />
-            </div>
-            <div className="form-outline mb-4">
-              <input
-                type="number"
-                onBlur=""
-                name="phone"
-                className="form-control form-control-lg"
-                placeholder="Phone Number"
-              />
-            </div>
-            <div className="form-outline mb-4">
-              <input
-                type="text"
-                onBlur=""
-                name="address"
-                className="form-control form-control-lg"
-                placeholder="Your address"
-              />
-            </div>
-            <div className="pt-1 mb-4">
-              <button className="btn btn-dark btn-lg btn-block" type="submit">
-                Order Confirm
-              </button>
-            </div>
-          </form>
+        <Col className="purchase-product mt-5" sm={12} md={6}>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <input defaultValue={product.title} {...register("title")} placeholder="title" />
+            <input defaultValue={product.price} {...register("price")} placeholder="price" />
+            <input defaultValue={user.displayName} {...register("name")} placeholder="Name" />
+            <input type="email" defaultValue={user.email} {...register("email")} placeholder="Email"/>
+            <input type="number"  {...register("number")} placeholder="Phone Number" required />
+            <input type="text" {...register("address")}  placeholder="Address" required />
+            <input type="text" {...register("shipping address")}  placeholder="Shipping Address" required />
+            <input type="submit" />
+            </form>
         </Col>
       </Row>
     </div>

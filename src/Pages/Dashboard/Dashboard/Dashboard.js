@@ -34,9 +34,11 @@ const Dashboard = () => {
                                 <li><Link to={`${url}/makeadmin`} className="nav-link border-bottom rounded-pill text-white">Make Admin</Link></li>
                                 <li><Link to={`${url}/manageproduct`} className="nav-link border-bottom rounded-pill text-white">Manage Products</Link></li>
                             </div>}
-                            <li><Link to={`${url}/myorder`} className="nav-link border-bottom rounded-pill text-white">My Orders</Link></li>
-                            <li><Link to={`${url}/review`} className="nav-link border-bottom rounded-pill text-white">Reviews</Link></li>
-                            <li><Link to={`${url}/pay`} className="nav-link border-bottom rounded-pill text-white">Pay</Link></li>
+                            {!admin && <div>
+                                <li><Link to={`${url}/myorder`} className="nav-link border-bottom rounded-pill text-white">My Orders</Link></li>
+                                <li><Link to={`${url}/review`} className="nav-link border-bottom rounded-pill text-white">Reviews</Link></li>
+                                <li><Link to={`${url}/pay`} className="nav-link border-bottom rounded-pill text-white">Pay</Link></li>
+                            </div>}
                             {user?.email ?
                                 <li onClick={logOut} className="nav-link border-bottom rounded-pill text-white">Logout</li> :
                                 <li><Link to="/login" className="nav-link border-bottom rounded-pill text-white">Login</Link></li>

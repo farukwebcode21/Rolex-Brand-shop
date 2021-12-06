@@ -3,7 +3,7 @@ import { Col, Row } from 'react-bootstrap'
 
 const Pay = () => {
     return (
-        <div>
+        <div className="dashboard-home">
             <Row>
                 <Col xs={12} md={12}>
                     <h3 className="center">Payment System Well Comming Soon................</h3>
