@@ -6,11 +6,11 @@ shingle product shop /Nish Related Website
 
 <a href="https://nish-website-9cda1.web.app/">Rolex Watch Brand</a>
 
-### automatic link
+### Client site code git clone link
 
 https://github.com/programming-hero-web-course-4/niche-website-client-side-farukwebcode21
 
-### automatic link server git clone
+### server code git clone
 
 https://github.com/programming-hero-web-course-4/niche-website-server-side-farukwebcode21
 
@@ -21,7 +21,5 @@ https://github.com/programming-hero-web-course-4/niche-website-server-side-faruk
 | Faruk Ahmad | Text is here           |
 | Faruk Ahmad | farukahmadmk@gmail.com |
 | Faruk Ahmad | farukahmadmk@yahoo.com |
-
-### facebook Profile
 
 [facebooklink]: https://www.facebook.com/faruk.shadin
